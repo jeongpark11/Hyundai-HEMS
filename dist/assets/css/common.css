@@ -1,0 +1,173 @@
+/*---------------------------------------------------------------------
+  프로젝트명 : 현대차 홈 에너지 시스템(PC)
+  프로젝트 폴더명: HYNDAI-HEMS
+  구축일시 : 2024.06.17 ~
+----------------------------------------------------------------------- */
+
+/*--------------------------------------------------------------------
+  reset
+----------------------------------------------------------------------- */
+@font-face {
+  font-family:"HyundaiSansHeadKROTFRegular";
+  src: url('../fonts/1586990078026-HyundaiSansHeadKROTFRegular.otf') format('opentype');
+}
+@font-face {
+  font-family:"HyundaiSansTextKROTFBold";
+  src: url('../fonts/1586990078026-HyundaiSansTextKROTFBold.otf') format('opentype');
+}
+@font-face {
+  font-family:"HyundaiSansTextKROTFMedium";
+  src: url('../fonts/1586990078026-HyundaiSansTextKROTFMedium.otf') format('opentype');
+}
+@font-face {
+  font-family:"HyundaiSansTextKROTFRegular";
+  src: url('../fonts/1586990078127-HyundaiSansTextKROTFRegular.otf') format('opentype');
+}
+@font-face {
+  font-family:"HyundaiSansHeadKROTFBold";
+  src: url('../fonts/1586990078128-HyundaiSansHeadKROTFBold.otf') format('opentype');
+}
+@font-face {
+  font-family:"HyundaiSansHeadKROTFLight";
+  src: url('../fonts/1586990078129-HyundaiSansHeadKROTFLight.otf') format('opentype');
+}
+@font-face {
+  font-family:"HyundaiSansHeadKROTFMedium";
+  src: url('../fonts/1586990078182-HyundaiSansHeadKROTFMedium.otf') format('opentype');
+}
+
+
+html{
+  font-size: min(0.92vh, 10px);
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	vertical-align: baseline;
+  box-sizing: border-box;
+  font-weight: normal;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+i{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    stroke: black;
+} 
+
+input{
+  font-size: 14px;
+  color: var(--color-main-gray);
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+body{
+  font-family: "HyundaiSansHeadKROTFRegular";
+  font-size: 1.6rem;
+}
+
+::-webkit-scrollbar{
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb{
+  background-color: #ccc;
+}
+
+/*--------------------------------------------------------------------
+  variables(:root -> color, i -> icon , input, button) 
+----------------------------------------------------------------------- */
+:root{
+    --color-hyndai-blue: #002C5F;
+    --color-primary-blue:#4D5BD4;
+    --color-main-black:#000;
+    --color-active-blue: #00AAD2;
+    --color-background:#F5F7FA;
+    --color-active-red: #E63312;
+    --color-main-gray: #999999;
+    --color-main-line: #DEE0E0;
+    --color-table-header: #E3E8EF;
+}
+
+
+i.clear{ background-image: url('../images/common/clear.svg'); }
+i.close{ background-image: url('../images/common/close.svg'); }
+i.dashboard{ background-image: url('../images/common/dashboard.svg'); }
+i.logo{ background-image: url('../images/common/logo.svg'); }
+i.open{ background-image: url('../images/common/open.svg'); }
+i.search-icon{ background-image: url('../images/common/search.svg'); }
+i.setting{ background-image: url('../images/common/setting.svg'); }
+i.stats{ background-image: url('../images/common/stats.svg'); }
+i.profile-user2{ background-image: url('../images/common/profile-user2.svg'); }
+
+input[type="checkbox"]{
+  display: inline-block;
+  margin-right: 8px;
+}
+input[type="checkbox"]::before{
+  display: block;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ccc;
+  content: '';
+  background-color: #fff;
+
+}
+input[type="checkbox"]:checked::before{
+  background-image: url('../images/common/checked.svg');
+}
+
+
+button{
+  width: 72px;
+  font-size: 13px;
+  line-height: 30px;
+  color: var(--color-hyndai-blue);
+  border: 1px solid var(--color-main-line );
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  text-align: center;
+}
+button.del{
+  color: var(--color-active-red);
+  border: 1px solid var(--color-active-red);
+  width: 48px;
+}

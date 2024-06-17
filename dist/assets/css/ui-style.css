@@ -1,0 +1,244 @@
+
+/*---------------------------------------------------------------------
+  프로젝트명 : 현대차 홈 에너지 시스템(PC)
+  프로젝트 폴더명: HYNDAI-HEMS
+  구축일시 : 2024.06.17 ~
+----------------------------------------------------------------------- */
+
+@import url('./common.css');
+
+.wrapper{
+  display: flex;
+}
+/* gnb */
+header{
+    position: relative;
+    width: 15.625%;
+    height: calc(100vh - 10px);
+    color: #fff;
+    min-width: 300px;
+    padding-top: 6rem;
+    background-color: var(--color-hyndai-blue);
+    overflow: hidden;
+    font-family: "HyundaiSansHeadKROTFRegular";
+}
+
+header .logo{
+  display: block;
+  width: 105px;
+  height: 5.4rem;
+  margin: 0 auto;
+}
+
+header h1 span{
+  display: block;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  margin-top: 2.3rem;
+  text-transform: capitalize;
+  text-align: center;
+  font-family: "HyundaiSansHeadKROTFBold";
+}
+
+header .categories{
+  margin-top: 3rem;
+}
+
+header .categories>li{
+  padding: 0 3rem;
+  line-height: 6rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+header .ct-title{
+  display: flex;
+  color: #fff;
+  align-items: center;
+}
+
+header .ct-title i:nth-of-type(1){
+  margin-right: 12px;
+}
+
+header .expand.open{
+  color: #A5B0BD;
+  background-color: #082343;
+  padding-bottom: 1.6rem;
+}
+header .expand.open .ct-title{
+  line-height: 5rem;
+}
+header .expand ul li{
+  line-height: 4.8rem;
+  margin-left: 30px;
+  
+}
+header .expand ul li.active, header .expand ul li:hover{
+  text-decoration: underline;
+  color: #fff;
+}
+
+header .expand ul{
+  height: 0px;
+  overflow: hidden;
+}
+header .expand.open ul{
+  height: 100%;
+}
+
+header .categories i.open, i.close{
+  display: inline-block;
+  margin-left: auto;
+}
+
+header .info{
+  position: absolute;
+  left: 0;
+  width: calc(100% - 60px);
+  margin: auto;
+  line-height: 3rem;
+  bottom: 3rem;
+  right: 0;
+}
+header .info i{
+  width: 26px;
+  height: 2.6rem;
+}
+header .info>li{
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+}
+header .info .btns{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  
+}
+header .info .btns .btn{
+  width: calc(50% -  5px);
+  font-size: 14px;
+  color: #AAC1DC;
+  border: 1px solid #AAC1DC;
+  cursor: pointer;
+  text-align: center;
+}
+
+
+/* container영역 */
+section.container{
+  width: calc(100% - 15.625%);
+  height: 100vh;
+  padding: 0 40px;
+  min-width: 1540px;
+  background-color: var(--color-background);
+}
+
+.container .header h4.breadscrumb{
+  line-height: 20px;
+  color: var(--color-main-gray);
+  padding-top: 50px;
+}
+.container .header h2{
+  font-size: 30px;
+  line-height: 47px;
+  color: var(--color-black);
+  font-weight: 700;
+  margin-top: 12px;
+}
+.container div.search{
+  display: flex;
+  width: 340px;
+  height: 42px;
+  padding: 0px 15px;
+  line-height: 42px;
+  border: 1px solid #ccc;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  margin-top: 30px;
+}
+.container .search input{
+  width: 100%;
+  line-height: 42px;
+  
+}
+.container .search i{
+  cursor: pointer;
+}
+
+/* 컨텐츠 영역 */
+.container .content{
+  height: calc(100vh - 130px);
+  overflow-y:scroll;
+}
+
+/* 테이블 영역 */
+.content .table ul{
+  display: flex;
+  justify-content: space-around;
+}
+.content .table li{
+  font-size: 14px;
+  line-height: 46px;
+  text-align: center;
+}
+
+
+
+.content .table .tbl-header{
+  display: flex;
+  margin-top: 42px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.content .table .tbl-header button{
+  width: 86px;
+  color: var(--color-hyndai-blue);
+  border:1px solid var(--color-hyndai-blue);
+  
+}
+.content .table .tbl-header button.del{
+  color: var(--color-active-red);
+  border:1px solid var(--color-active-red);
+}
+.content .table .tbl-header button.active{
+  color: #fff;
+  background-color: var(--color-hyndai-blue);
+}
+.content .table .tbl-header ul{
+  width: 100%;
+  font-size: 14px;
+  margin-top: 20px;
+  background-color: var(--color-table-header);
+}
+.content .table .tbl-header ul li{
+  line-height: 55px;
+}
+
+.content .pagination{
+  text-align: center;
+  margin-top: 30px;
+}
+.content .pagination a{
+  display: inline-block;
+  width: 32px;
+  line-height: 32px;
+  color: var(--color-main-gray);
+  text-decoration: none;
+  outline: 1px solid #ccc;
+}
+.content .pagination .active{
+  color: #fff;
+  background-color: var(--color-hyndai-blue);
+  outline: 1px solid var(--color-hyndai-blue);
+}
+
+
+
+
+
