@@ -4,26 +4,28 @@
   프로젝트 폴더명: HYNDAI-HEMS
   구축일시 : 2024.06.17 ~
 ----------------------------------------------------------------------- */
-
 @import url('./common.css');
 
+
+/* gnb */
 .wrapper{
   display: flex;
+  justify-content: space-between;
 }
-/* gnb */
 header{
-    position: relative;
-    width: 15.625%;
-    height: calc(100vh - 10px);
+  position: relative;
+    width: max(15.625vw,300px);
+    height: calc(100vh - 1px);
+    font-family: "HyundaiSansHeadKROTFRegular";
     color: #fff;
-    min-width: 300px;
     padding-top: 6rem;
     background-color: var(--color-hyndai-blue);
     overflow: hidden;
-    font-family: "HyundaiSansHeadKROTFRegular";
+    z-index: 10;
+    min-height: 500px;
 }
 
-header .logo{
+header h1 .logo{
   display: block;
   width: 105px;
   height: 5.4rem;
@@ -32,13 +34,13 @@ header .logo{
 
 header h1 span{
   display: block;
+  font-family: "HyundaiSansHeadKROTFBold";
   font-size: 2rem;
   line-height: 2.5rem;
   font-weight: 700;
   margin-top: 2.3rem;
   text-transform: capitalize;
   text-align: center;
-  font-family: "HyundaiSansHeadKROTFBold";
 }
 
 header .categories{
@@ -52,40 +54,44 @@ header .categories>li{
   cursor: pointer;
 }
 
-header .ct-title{
+header .categories .expand ul{
+  height: 0px;
+  overflow: hidden;
+}
+
+header .expand.open ul{
+  height: 100%;
+}
+
+header .categories .expand li{
+  line-height: 4.8rem;
+  margin-left: 30px;
+}
+
+header .categories .expand li.active a, 
+header .categories .expand li:hover a{
+  color: #fff;
+  text-decoration: underline;
+}
+
+header .categories .expand.open{
+  color: #A5B0BD;
+  background-color: #082343;
+  padding-bottom: 1.6rem;
+}
+
+header .categories .ct-title{
   display: flex;
   color: #fff;
   align-items: center;
 }
 
-header .ct-title i:nth-of-type(1){
+header .categories .ct-title i:nth-of-type(1){
   margin-right: 12px;
 }
 
-header .expand.open{
-  color: #A5B0BD;
-  background-color: #082343;
-  padding-bottom: 1.6rem;
-}
 header .expand.open .ct-title{
   line-height: 5rem;
-}
-header .expand ul li{
-  line-height: 4.8rem;
-  margin-left: 30px;
-  
-}
-header .expand ul li.active, header .expand ul li:hover{
-  text-decoration: underline;
-  color: #fff;
-}
-
-header .expand ul{
-  height: 0px;
-  overflow: hidden;
-}
-header .expand.open ul{
-  height: 100%;
 }
 
 header .categories i.open, i.close{
@@ -129,17 +135,26 @@ header .info .btns .btn{
 
 /* container영역 */
 section.container{
-  width: calc(100% - 15.625%);
-  height: 100vh;
-  padding: 0 40px;
-  min-width: 1540px;
+  width: calc(100vw -  max(15.625vw,300px));
+  padding: 50px 40px 145px;
+  overflow: scroll;
   background-color: var(--color-background);
 }
-
+.container .header{
+  padding-bottom: 30px;
+}
 .container .header h4.breadscrumb{
+  font-size: 16px;
   line-height: 20px;
   color: var(--color-main-gray);
-  padding-top: 50px;
+  
+}
+.container  h4.breadscrumb span{
+  margin: 0px 10px;
+  text-transform: capitalize;
+}
+.container  h4.breadscrumb span:nth-of-type(1){
+  margin-left: 0;
 }
 .container .header h2{
   font-size: 30px;
@@ -148,6 +163,8 @@ section.container{
   font-weight: 700;
   margin-top: 12px;
 }
+
+/* content 영역 - home_list */
 .container div.search{
   display: flex;
   width: 340px;
@@ -158,7 +175,6 @@ section.container{
   align-items: center;
   justify-content: space-between;
   background-color: #fff;
-  margin-top: 30px;
 }
 .container .search input{
   width: 100%;
@@ -169,25 +185,33 @@ section.container{
   cursor: pointer;
 }
 
-/* 컨텐츠 영역 */
 .container .content{
-  height: calc(100vh - 130px);
-  overflow-y:scroll;
+  height:calc(100vh - 259px);
+  overflow:scroll;
 }
-
-/* 테이블 영역 */
+/* 테이블 영역 - home_list*/
+.content .table{
+  min-width: 1250px;
+}
 .content .table ul{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .content .table li{
+  width: calc(100% / 8);
   font-size: 14px;
   line-height: 46px;
   text-align: center;
 }
-
-
-
+.content .table li.w300{
+  min-width: 300px;
+}
+.content .table li:nth-of-type(1){
+  width: calc(100% / 8 * 0.5);
+}
+.content .table li:nth-last-child(1){
+  width: calc(100% / 8 * 1.5);
+}
 .content .table .tbl-header{
   display: flex;
   margin-top: 42px;
@@ -195,20 +219,6 @@ section.container{
   justify-content: space-between;
   align-items: center;
   
-}
-.content .table .tbl-header button{
-  width: 86px;
-  color: var(--color-hyndai-blue);
-  border:1px solid var(--color-hyndai-blue);
-  
-}
-.content .table .tbl-header button.del{
-  color: var(--color-active-red);
-  border:1px solid var(--color-active-red);
-}
-.content .table .tbl-header button.active{
-  color: #fff;
-  background-color: var(--color-hyndai-blue);
 }
 .content .table .tbl-header ul{
   width: 100%;
@@ -220,9 +230,11 @@ section.container{
   line-height: 55px;
 }
 
+
 .content .pagination{
   text-align: center;
   margin-top: 30px;
+  padding-bottom: 3px;
 }
 .content .pagination a{
   display: inline-block;
@@ -238,7 +250,119 @@ section.container{
   outline: 1px solid var(--color-hyndai-blue);
 }
 
+/* form영역: 신규입력 */
+.input-table{
+  padding: 40px 20px 30px 20px;
+  border: 1px solid var(--color-table-header);
+  background-color: #fff;
+  min-width: 760px;
+}
+.input-table li{
+  padding: 15px 0px;
+  border-bottom: 1px solid var(--color-table-header);
+}
+.input-table li:last-child{
+  border-bottom: none;
+  text-align: right;
+}
+.input-table li.etc label{
+  vertical-align: top;
+}
+.input-table label{
+  display: inline-block;
+  width: 200px;
+  padding-left: 10px;
+  text-transform: capitalize;
+}
+.input-table textarea{
+  width: 500px;
+  height: 120px;
+  border: 1px solid var(--color-table-header);
+  padding-left: 15px;
+  padding-top: 13px;
+}
+.input-table input[type="text"]{
+  width: 500px;
+  height: 42px;
+  color: #000;
+  border: 1px solid var(--color-table-header);
+  padding-left: 15px;
+}
+.input-table .notice[type="text"]{
+  border-bottom:  1px solid var(--color-active-red);
+} 
+.input-table input+p{
+  display: none;
+}
+.input-table .hlight{
+  position: relative;
+}
+.input-table .hlight input{
+  position: relative;
+  border-bottom: 1px solid var(--color-main-black);
+}
+.input-table .hlight i.clear{
+  position: absolute;
+  top: 0;
+  left: 670px;
+  margin: auto;
+  bottom: 0;
+  cursor: pointer;
+
+}
+
+.input-table .notice+p{
+  display: block;
+  line-height: 14px;
+  color: var(--color-active-red);
+  margin-left: 202px;
+  margin-top: 5px;
+}
 
 
+/* 모달창 영역 */
+.dimmed{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.6);
+}
+.modal{
+  display: inline-block;
+  display: none;
+  position: static;
+  padding: 30px 20px 20px;
+  background-color: #fff;
+  margin-left: 50%;
+  margin-top:40vh;
+}
+.modal.active{
+  display: inline-block;
+}
 
+.modal h2{
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.modal p{
+  font-size: 14px;
+  line-height: 22px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.modal .btns{
+  display: flex;
+  width: 260px;
+  margin-top: 30px;
+  justify-content: space-between;
+  column-gap: 10px;
+}
+.modal .btns button{
+  flex-basis: 100%;
+}
 

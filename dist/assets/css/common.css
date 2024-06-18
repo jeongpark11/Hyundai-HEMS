@@ -52,7 +52,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, audio, video ,button, input, textarea{
 	padding: 0;
 	margin: 0;
 	border: 0;
@@ -64,9 +64,7 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-body {
-	line-height: 1;
-}
+
 ol, ul {
 	list-style: none;
 }
@@ -100,8 +98,12 @@ input{
   outline: none;
 }
 body{
+  position: relative;
   font-family: "HyundaiSansHeadKROTFRegular";
   font-size: 1.6rem;
+  line-height: 1;
+  overflow-y: hidden;
+  height: 100vh;
 }
 
 ::-webkit-scrollbar{
@@ -110,10 +112,17 @@ body{
 ::-webkit-scrollbar-thumb{
   background-color: #ccc;
 }
+a{
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
 
 /*--------------------------------------------------------------------
-  variables(:root -> color, i -> icon , input, button) 
+  variables 
 ----------------------------------------------------------------------- */
+/* color */
 :root{
     --color-hyndai-blue: #002C5F;
     --color-primary-blue:#4D5BD4;
@@ -124,9 +133,12 @@ body{
     --color-main-gray: #999999;
     --color-main-line: #DEE0E0;
     --color-table-header: #E3E8EF;
+    --color-unactive-red:#d19388;
+    --color-button-ative : #001833;
+    --color-button-disabled : #6284AC;
 }
 
-
+/* icon */
 i.clear{ background-image: url('../images/common/clear.svg'); }
 i.close{ background-image: url('../images/common/close.svg'); }
 i.dashboard{ background-image: url('../images/common/dashboard.svg'); }
@@ -136,7 +148,24 @@ i.search-icon{ background-image: url('../images/common/search.svg'); }
 i.setting{ background-image: url('../images/common/setting.svg'); }
 i.stats{ background-image: url('../images/common/stats.svg'); }
 i.profile-user2{ background-image: url('../images/common/profile-user2.svg'); }
+.imp{
+  position: relative;
+}
+.imp::after{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  margin: auto;
+  border-radius: 50%;
+  content: '';
+  bottom: 0;
+  background-color: var(--color-active-red);
+}
 
+/* checkbox/radio */
 input[type="checkbox"]{
   display: inline-block;
   margin-right: 8px;
@@ -153,21 +182,188 @@ input[type="checkbox"]::before{
 input[type="checkbox"]:checked::before{
   background-image: url('../images/common/checked.svg');
 }
-
-
-button{
-  width: 72px;
-  font-size: 13px;
-  line-height: 30px;
-  color: var(--color-hyndai-blue);
-  border: 1px solid var(--color-main-line );
-  outline: none;
-  background-color: transparent;
-  cursor: pointer;
-  text-align: center;
+input[type="radio"]::before{
+  display: block;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  content: '';
+  background-image: url('../images/common/radio_default.svg');
 }
-button.del{
+input[type="radio"]:checked::before{
+  background-image: url('../images/common/radio_check.svg');
+}
+input[type="text"]:disabled{
+  border: 1px solid var(--color-main-line);
+  background-color: #F3F3F3;
+}
+
+
+/* button */
+button{
+  width: 120px;
+  font-family: "HyundaiSansHeadKROTFRegular";
+  font-size: 16px;
+  line-height: 46px;
+  color: #fff;
+  border: 1px solid var(--color-hyndai-blue);
+  background-color: var(--color-hyndai-blue);
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+
+}
+
+button:hover{
+  background-color: var(--color-button-ative);
+}
+
+button:disabled{
+  color: var(--color-button-disabled);
+  cursor: auto;
+}
+
+button.basic{
+  color: var(--color-hyndai-blue);
+  border: 1px solid var(--color-hyndai-blue);
+  background-color: #fff;
+}
+
+button.basic:hover{
+  color: #fff;
+  border: 1px solid var(--color-hyndai-blue);
+  background-color: var(--color-hyndai-blue);
+}
+.negative-btn{
+  vertical-align: top;
+  width: 120px;
+  line-height: 46px;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  background-color: var(--color-main-gray);
+  border: 1px solid var(--color-main-gray);
+}
+.negative-btn:hover{
+  background-color: #666;
+  border: 1px solid #666;
+  color: #ccc;
+}
+.negative-btn:disabled,
+.negative-btn:disabled:hover{
+  background-color: var(--color-main-gray);
+  border: 1px solid var(--color-main-gray);
+}
+
+.table-btn{
+  display: inline-block;
+  text-align: center;
+  width: 86px;
+  line-height: 42px;
+  background-color: transparent;
+  color: var(--color-hyndai-blue);
+  border: 1px solid  var(--color-hyndai-blue);
+  font-size: 16px;
+  text-decoration: none;
+}
+.table-btn.del{
+  color: var(--color-active-red);
+  border:1px solid var(--color-active-red);
+}
+.table-btn.del:hover{
+  background-color: var(--color-active-red);
+  color: #fff;
+}
+.table-btn.del:disabled,
+.table-btn.del:disabled:hover{
+  border:1px solid var(--color-unactive-red);
+  color: var(--color-unactive-red);
+  background-color: var(--color-background);
+}
+
+.table-btn.down{
+  width: 88px;
+}
+.table-btn.down:hover{
+  background-color:var(--color-hyndai-blue);
+  color: #fff;
+}
+.table-btn.down:disabled,
+.table-btn.down:disabled:hover{
+  color: var(--color-main-gray);
+  background-color: var(--color-background);
+} 
+.table-btn.new{
+  background-color: var(--color-hyndai-blue);
+  color: #fff;
+}
+.table-btn.new:hover{
+  background-color: var(--color-button-ative);
+  border: 1px solid var(--color-button-ative);
+}
+.table-btn.new:disabled,
+.table-btn.new:disabled:hover{
+  background-color: var(--color-hyndai-blue);
+  color: var(--color-button-disabled);
+  border: 1px solid var(--color-hyndai-blue);
+}
+.small-btn{
+  width: 72px;
+  line-height: 30px;
+  font-size: 13px;
+  background-color: transparent;
+  color: #000;
+  border: 1px solid var(--color-main-line);
+}
+.small-btn:hover{
+  background-color: var(--color-hyndai-blue);
+  color: #fff;
+  border: 1px solid var(--color-hyndai-blue);
+}
+.small-btn:disabled,
+.small-btn:disabled:hover{
+  border: 1px solid var(--color-main-line);
+  color: var(--color-main-gray);
+  background-color: transparent;
+}
+
+.small-btn.del{
   color: var(--color-active-red);
   border: 1px solid var(--color-active-red);
-  width: 48px;
 }
+.small-btn.del:hover{
+  color: #fff;
+  background-color: var(--color-active-red);
+}
+.small-btn.del:disabled,
+.small-btn.del:disabled:hover{
+  border: 1px solid var(--color-unactive-red);
+  background-color: transparent;
+  color: var(--color-unactive-red);
+}
+
+.modal-btn{
+  width: 100%;
+  line-height: 40px;
+}
+.modal-btn.cnl{
+  background-color: var(--color-main-gray);
+  border: 1px solid var(--color-main-gray);
+}
+.modal-btn.cnl:hover{
+  background-color: #5c5c5c;
+  border: 1px solid #5c5c5c;
+}
+.modal-btn.del{
+  background-color: var(--color-active-red);
+  border: 1px solid var(--color-active-red);
+}
+.modal-btn.del:hover{
+  background-color: #A1240D;
+  border: 1px solid #A1240D;
+}
+
