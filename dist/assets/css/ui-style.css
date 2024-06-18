@@ -13,7 +13,7 @@
   justify-content: space-between;
 }
 header{
-  position: relative;
+    position: relative;
     width: max(15.625vw,300px);
     height: calc(100vh - 1px);
     font-family: "HyundaiSansHeadKROTFRegular";
@@ -197,6 +197,7 @@ section.container{
 /* 테이블 영역 - home_list*/
 .content .table{
   min-width: 1250px;
+  padding-right: 40px;
 }
 .content .table ul{
   display: flex;
@@ -335,7 +336,6 @@ section.container{
   background-color: rgba(0,0,0,0.6);
 }
 .modal{
-  display: inline-block;
   display: none;
   position: static;
   padding: 30px 20px 20px;
