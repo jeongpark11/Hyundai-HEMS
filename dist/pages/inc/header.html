@@ -1,0 +1,82 @@
+<header>
+    <h1>
+        <i class="logo"></i>
+        <span>Home Energy <br> Monitoring System</span>
+    </h1>
+
+    <div class="gnb">
+        <ul class="categories"> 
+            <li class="ct-title"><i class="dashboard"></i><span>대시보드</span></li>
+            <li class="expand">
+                <h3 class="ct-title"><i class="stats"></i><span>통계</span><i class="open"></i></h3>
+                <ul>
+                    <li><a hred="">PV 생산 전력 통계</a></li>
+                    <li><a hred="">Home 소비 전력 통계</a></li>
+                    <li><a hred="">ESS 사용 통계</a></li>
+                    <li><a hred="">EHP 사용 통계</a></li>
+                    <li><a hred="">EVC 사용 통계</a></li>
+                    <li><a hred="">EV 사용 통계</a></li>
+                </ul>
+            </li>
+            <li class="expand open">
+                <h3 class="ct-title"><i class="setting"></i><span>관리</span><i class="open"></i></h3>
+                <ul>
+                    <li class="active"><a href="./home.html">Home 관리</a></li>
+                    <li><a href="">스마트미터 관리</a></li>
+                    <li><a href="">PV 관리</a></li>
+                    <li><a href="">ESS 관리</a></li>
+                    <li><a href="">EHP 모델 관리</a></li>
+                    <li><a href="">EVC 관리</a></li>
+                    <li><a href="">EV 모델 관리</a></li>
+                    <li><a href="">충전기 모델 관리</a></li>
+                </ul>
+            </li>
+            <li class="expand">
+                <h3 class="ct-title"><i class="setting"></i><span>관리자관리</span><i class="open"></i></h3>
+                <ul>
+                    <li><a href="">관리자 관리</a></li>
+                </ul>
+            </li>
+            <li class="expand">
+                <h3 class="ct-title"><i class="setting"></i><span>충전기 모델관리</span><i class="open"></i></h3>
+                <ul>
+                    <li><a href="">충전기 모델 추가</a></li>
+                    <li><a href="">충전기 모델 정보 변경</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="info">
+            <li><i class="profile-user2"></i><span>홍길동</span></li>
+            <li class="btns">
+                <div class="btn">로그아웃</div>
+                <div class="btn">비밀번호 변경</div>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- header용 script  실제 개발 시 삭제-->
+<script>
+    $(function(){
+    // 카테고리 interaction
+    const cat =  $('.categories .ct-title');
+    const expCat = $('.categories .expand>ul li');
+    
+    cat.click(function(){
+        const exp =  $(this).parents('.expand');
+        const ico =  $(this).children('i.open');
+        expCat.removeClass('active');
+        $(this).next().children().first().addClass('active');
+        ico.attr('class','close');
+        exp.attr('class').includes('open')?
+        exp.toggleClass('open'):
+        (cat.parents('.expand').removeClass('open'),exp.toggleClass('open'));
+    });
+
+    expCat.click(function(){
+        expCat.removeClass('active');
+        $(this).addClass('active');
+        })
+    });
+</script>

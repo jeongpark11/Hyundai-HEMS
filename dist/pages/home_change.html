@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>현대차 홈 에너지 시스템</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- favicon -->
+    <!-- <link rel="icon" href="./assets/images/common/favicon.ico" type="image/x-icon" /> -->
+    <!-- //favicon -->
+    <link rel="stylesheet" href="../assets/css/ui-style.css">
+    <script src="../assets/lib/jquery-3.7.1.min.js"></script>
+    <script src="../assets/js/ui-script.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- 헤더전용 임시 태그 : 실제 개발 시 삭제  -->
+        <div class="header-place"></div>
+
+        <!-- 컨텐츠 영역 -->
+        <section class="container">
+            <!-- 컨텐츠 공통해더 : fixed -->
+            <div class="header">
+            <h4 class="breadscrumb"><span>main</span> &gt;<span>관리</span> &gt;<span>Home관리</span> &gt;<span>Home 변경</span></h4>
+            <h2>Home 변경 </h2>
+        </div>
+
+        <!-- 공통영역은 고정 / container 내부 내용만 변경 -->
+        <form action="./home_detail.html" class="content">
+            <ul class="input-table">
+                <li>
+                    <label for="home-name">home명 <i class="imp"></i></label>
+                    <input type="text" value="home명" id="home-name" disabled>
+                </li>
+                <li>
+                    <label for="home-pre">고객명  <i class="imp"></i></label>
+                    <input type="text" value="고객명" id="home-pre">
+                </li>
+                <li>
+                    <label>지역 <i class="imp"></i></label> 
+                    <input type="radio" id="ind" name="loc" checked><label for="ind">국내</label>
+                    <input type="radio" id="oud" name="loc"><label for="oud">해외</label>
+                </li>
+                <li class="hlight">
+                    <label for="addr">주소 <i class="imp"></i></label> 
+                    <input type="text" id="addr" value="경기도 오산시 수목원로 606">
+                    <i class="clear"></i>
+                </li>
+                <li class="etc">
+                    <label for="etc">비고 <i class="imp"></i></label>
+                    <textarea name="" id="etc">비고</textarea>
+                </li>
+                <li>
+
+                    <!-- <button class="negative-btn">취소</button> -->
+                    <a href="./home.html" class="negative-btn">취소</a>
+                    <button type="button" class="change">변경</button>
+                </li>
+            </ul>
+        </form>
+    </section>
+    </div>
+    
+
+    <div class="modal-place"></div>
+    
+    <!-- 레이아웃 조합용 스크립트입니다. 개발시 삭제해주세요.:파일까지 삭제 필요 -->
+    <script src="../assets/js/ui-layout-script.js"></script>
+    <!--//레이아웃 조합용 스크립트입니다. 개발시 삭제해주세요. //-->
+</body>
+</html>

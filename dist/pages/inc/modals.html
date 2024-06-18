@@ -1,0 +1,105 @@
+<div class="dimmed" style="display: none;">
+    <!-- 모달은 class active로 show/hide구분 -->
+    <!-- 삭제하기 모달 -->
+    <div class="modal del">
+        <h2>삭제하기</h2>
+        <p>삭제하시겠습니까? <br>삭제시 복구가 불가합니다.</p>
+        <div class="btns"> 
+            <button type="button" class="modal-btn cnl">취소</button>
+            <button type="button" class="modal-btn del">삭제</button>
+        </div>
+    </div>
+    
+    <!-- 내려받기 모달 -->
+    <div class="modal down">
+        <h2>내려받기</h2>
+        <p>체크된 항목을 내려받으시겠습니까?</p>
+        <div class="btns"> 
+            <button type="button" class="modal-btn cnl">취소</button>
+            <button type="button" class="modal-btn cel">내려받기</button>
+        </div>
+    </div>
+    
+    <!-- 삭제실패 모달 -->
+    <div class="modal fail">
+        <h2>삭제실패</h2>
+        <p>삭제하려는 Home에 디바이스가 <br>
+            연결되어 있습니다. <br>
+            디바이스 연결 해제 후 삭제 가능합니다.</p>
+        <div class="btns"> 
+            <button type="button" class="modal-btn ck">확인</button>
+        </div>
+    </div>
+
+    <!-- 오류발생 모달 -->
+    <div class="modal error">
+        <p> 오류가 발생했습니다.</p>
+        <div class="btns"> 
+            <button type="button" class="modal-btn ck">확인</button>
+        </div>
+    </div>
+
+    <!-- 변경모달 -->
+    <div class="modal change">
+        <p>변경이 완료 되었습니다.</p>
+        <div class="btns"> 
+            <a href="./home_detail.html" class="button ck">확인</a>
+        </div>
+    </div>
+
+</div>
+<!-- 모달용 스크립트 : 개발 시 삭제 -->
+<script>
+    // 모달 interaction
+    const btnCk = $('.pop-ck');
+    const btnCl = $('.pop-cl');
+    const btnDel = $('.pop-del');
+    const tbBtnDel = $('button.del');
+    const btnChange = $('button.change');
+    const modalDel = $('.modal-btn.del');
+    const modalCnl = $('.modal-btn.cnl');
+    const modalCk = $('.modal-btn.ck');
+
+    // 모달 보여지기/사라지기 함수 (모달dom, 상태(1:show, 0:hide))
+    const modalShowHide=function(modal,sh){
+        !sh? 
+        (modal.parents('.modal').removeClass('active'),
+        $('.dimmed').css('display','none'))
+        : 
+        (modal.addClass('active'),
+        $('.dimmed').css('display','block'));
+    };
+
+    btnCk.click(function(){
+        modalShowHide($(this),0);
+    })
+
+    tbBtnDel.click(function(){
+        modalShowHide($('.modal.del'),1);
+    })
+    
+    btnCl.click(function(){
+        modalShowHide($(this),0);
+    })
+
+    btnDel.click(function(){
+        modalShowHide($(this),0);
+      
+    });
+
+    btnChange.click(function(){
+        modalShowHide($('.modal.change'),1);
+    });
+    modalDel.click(function(){
+        modalShowHide($(this),0);
+        modalShowHide($('.modal.fail'),1);
+    })
+    modalCnl.click(function(){
+        modalShowHide($(this),0);
+    })
+    modalCk.click(function(){
+        modalShowHide($(this),0);
+    })
+
+
+</script>
