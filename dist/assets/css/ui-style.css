@@ -136,18 +136,23 @@ header .info .btns .btn{
 /* container영역 */
 section.container{
   width: calc(100vw -  max(15.625vw,300px));
-  padding: 50px 40px 145px;
-  overflow: scroll;
+  padding: 50px 0 145px 40px;
   background-color: var(--color-background);
 }
 .container .header{
   padding-bottom: 30px;
 }
-.container .header h4.breadscrumb{
+.container .header .breadcrumb{
+  display: flex;
   font-size: 16px;
   line-height: 20px;
   color: var(--color-main-gray);
-  
+  text-transform: capitalize; 
+  }
+.container .header .breadcrumb li+li::before{
+  content: '>';
+  display: inline-block;
+  margin: 0px 5px;
 }
 .container  h4.breadscrumb span{
   margin: 0px 10px;

@@ -348,7 +348,11 @@ button.basic:hover{
 
 .modal-btn{
   width: 100%;
+  display: inline-block;
+  text-align: center;
   line-height: 40px;
+  background-color: var(--color-hyndai-blue);
+  color: #fff;
 }
 .modal-btn.cnl{
   background-color: var(--color-main-gray);
